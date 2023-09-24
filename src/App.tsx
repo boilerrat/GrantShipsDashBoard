@@ -1,12 +1,18 @@
+// React imports
 import React, { useState } from 'react';
+
+// Material-UI imports
 import { ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+
+
+// Custom component and theme imports
 import { createMyTheme } from './theme';
 import GrantShip1Data from './data/ShipsData/GrantShip1Data';
 import GrantShip2Data from './data/ShipsData/GrantShip2Data';
@@ -14,13 +20,20 @@ import GrantShip3Data from './data/ShipsData/GrantShip3Data';
 import GrantShip4Data from './data/ShipsData/GrantShip4Data';
 import TotalShipData from './data/ShipsData/totalShipData';
 import RefereeDataComponent from './data/RefereeDataComponent';
+
+// RainbowKit and Wagmi imports
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+
+// Chain and provider imports
 import { mainnet, polygon, optimism, arbitrum, base, zora, sepolia, goerli, baseGoerli, optimismGoerli } from 'viem/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+
+// RainbowKit UI components
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 
   // Wallet connection setup
   const { chains, publicClient } = configureChains(
@@ -54,38 +67,39 @@ const App = () => {
           <AppBar position="static">
             <Toolbar>
               <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+              <Box flexGrow={1}></Box>
               <ConnectButton />
             </Toolbar>
           </AppBar>
           <Container>
             <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Paper>
+              <Grid item xs={12} md={12}>
+                <Paper sx={{ padding: 2, marginTop: '20px', minHeight: '400px' }}>
                   <TotalShipData />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Paper>
+                <Paper sx={{ padding: 2, minHeight: '400px' }}>
                   <GrantShip1Data />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Paper>
+                <Paper sx={{ padding: 2, minHeight: '400px' }}>
                   <GrantShip2Data />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Paper>
+                <Paper sx={{ padding: 2, minHeight: '400px' }}>
                   <GrantShip3Data />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Paper>
+                <Paper sx={{ padding: 2, minHeight: '400px' }}>
                   <GrantShip4Data />
                 </Paper>
               </Grid>
               <Grid item xs={12}>
-                <Paper>
+                <Paper sx={{ padding: 2, minHeight: '200px' }}>
                   <RefereeDataComponent />
                 </Paper>
               </Grid>
@@ -98,3 +112,4 @@ const App = () => {
 };
 
 export default App;
+
