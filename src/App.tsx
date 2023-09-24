@@ -73,34 +73,67 @@ const App = () => {
           </AppBar>
           <Container>
             <Grid container spacing={3}>
-              <Grid item xs={12} md={12}>
-                <Paper sx={{ padding: 2, marginTop: '20px', minHeight: '400px' }}>
+              {/* Total Ship Data and Totals Chart */}
+              <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '250px', marginTop: '20px' }}>
                   <TotalShipData />
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ padding: 2, minHeight: '400px' }}>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '250px', marginTop: '20px' }}>
+                  {/* Totals Chart content will go here */}
+                </Paper>
+              </Grid>
+              {/* Grant Ship 1 Data and Grant Ship 1 Charts */}
+              <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
                   <GrantShip1Data />
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ padding: 2, minHeight: '400px' }}>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
+                  {/* Grant Ship 2 Charts content will go here */}
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
                   <GrantShip2Data />
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ padding: 2, minHeight: '400px' }}>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
+                  {/* Grant Ship 2 Charts content will go here */}
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
                   <GrantShip3Data />
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Paper sx={{ padding: 2, minHeight: '400px' }}>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
+                  {/* Grant Ship 3 Charts content will go here */}
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
                   <GrantShip4Data />
                 </Paper>
               </Grid>
-              <Grid item xs={12}>
-                <Paper sx={{ padding: 2, minHeight: '200px' }}>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '500px' }}>
+                  {/* Grant Ship 4 Charts content will go here */}
+                </Paper>
+              </Grid>
+               {/* Referee Data and Referee Charts */}
+               <Grid item xs={12} md={3}>
+                <Paper sx={{ padding: 2, minHeight: '250px' }}>
                   <RefereeDataComponent />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={9}>
+                <Paper sx={{ padding: 2, minHeight: '250px' }}>
+                  {/* Referee Charts content will go here */}
                 </Paper>
               </Grid>
             </Grid>
