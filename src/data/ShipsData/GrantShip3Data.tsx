@@ -5,30 +5,57 @@ import hatData from '../hatData';
 
 // Define TypeScript interfaces for the data shapes
 interface Season {
-    season: number;
-    allocated: number;
-    distributed: number;
-    grants: number;
-    impact: {
-      [key: string]: number;
-    };
-  }
-  
-  interface GrantShip {
-    wearer?: string;
-    captain?: {
-      wearer?: string;
-    };
-    cards?: {
-      greenCard?: boolean;
-    };
-  }
+  season: number;
+  allocated: number;
+  distributed: number;
+  grants: number;
+  impact: {
+    [key: string]: number;
+  };
+}
+
+interface GrantShip {
+  id: string;
+  name: string;
+  isActive: boolean;
+  wearer: string | "NAN";
+  cards?: {
+    yellowCard1: boolean;
+    yellowCard2: boolean;
+    redCard: boolean;
+    greenCard: boolean;
+  };
+  captain?: {
+    id: string;
+    isActive: boolean;
+    wearer: string | "NAN";
+  };
+}
 
 // Extracting Grant Ship 3 data from seasonData
 const grantShip3SeasonData: Season[] = seasonData.find(ship => ship.name === 'Grant Ship 3')?.seasons || [];
 
+// Define a default GrantShip object
+const defaultGrantShip: GrantShip = {
+  id: '',
+  name: '',
+  isActive: false,
+  wearer: 'NAN',
+  cards: {
+    yellowCard1: false,
+    yellowCard2: false,
+    redCard: false,
+    greenCard: false,
+  },
+  captain: {
+    id: '',
+    isActive: false,
+    wearer: 'NAN',
+  },
+};
+
 // Extracting Grant Ship 3 data from hatData
-const grantShip3HatData: GrantShip = hatData.grantShips.find(ship => ship.name === 'Grant Ship 3') || {};
+const grantShip3HatData: GrantShip = hatData.grantShips.find(ship => ship.name === 'Grant Ship 3') || defaultGrantShip;
 
 const GrantShip3Data = () => {
   return (
@@ -64,8 +91,8 @@ const GrantShip3Data = () => {
 
       {/* Displaying Hat Data */}
       <Typography variant="subtitle1">Hat Data</Typography>
-      <Typography variant="body2">Wearer: {grantShip3HatData.wearer}</Typography>
-      <Typography variant="body2">Captain: {grantShip3HatData.captain?.wearer}</Typography>
+      <Typography variant="body2">Wearer: {grantShip3HatData.id}</Typography>
+      <Typography variant="body2">Captain: {grantShip3HatData.captain?.id}</Typography>
       <Typography variant="body2">Green Card: {grantShip3HatData.cards?.greenCard ? 'Yes' : 'No'}</Typography>
     </div>
   );
