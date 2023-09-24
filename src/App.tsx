@@ -14,55 +14,86 @@ import GrantShip3Data from './data/ShipsData/GrantShip3Data';
 import GrantShip4Data from './data/ShipsData/GrantShip4Data';
 import TotalShipData from './data/ShipsData/totalShipData';
 import RefereeDataComponent from './data/RefereeDataComponent';
+import '@rainbow-me/rainbowkit/styles.css';
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { mainnet, polygon, optimism, arbitrum, base, zora, sepolia, goerli, baseGoerli, optimismGoerli } from 'viem/chains';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
+  // Wallet connection setup
+  const { chains, publicClient } = configureChains(
+    [mainnet, polygon, optimism, arbitrum, base, zora, sepolia, goerli, baseGoerli, optimismGoerli],
+    [
+      alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
+      publicProvider()
+    ]
+  );
+
+  const { connectors } = getDefaultWallets({
+    appName: 'Dashboard',
+    projectId: '42d4d2f61efab42ee68c5777f1ab5a85',
+    chains
+  });
+
+  const wagmiConfig = createConfig({
+    autoConnect: true,
+    connectors,
+    publicClient
+  });
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true); // Default to dark mode
   const theme = createMyTheme(darkMode);
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppBar position="static">
-        <Toolbar>
-          <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-          {/* Wallet connection button will go here */}
-        </Toolbar>
-      </AppBar>
-      <Container>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper>
-              <TotalShipData />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper>
-              <GrantShip1Data />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper>
-              <GrantShip2Data />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper>
-              <GrantShip3Data />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper>
-              <GrantShip4Data />
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper>
-              <RefereeDataComponent />
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-    </ThemeProvider>
+    <WagmiConfig config={wagmiConfig}>
+      <RainbowKitProvider chains={chains}>
+        <ThemeProvider theme={theme}>
+          <AppBar position="static">
+            <Toolbar>
+              <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+              <ConnectButton />
+            </Toolbar>
+          </AppBar>
+          <Container>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Paper>
+                  <TotalShipData />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Paper>
+                  <GrantShip1Data />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Paper>
+                  <GrantShip2Data />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Paper>
+                  <GrantShip3Data />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Paper>
+                  <GrantShip4Data />
+                </Paper>
+              </Grid>
+              <Grid item xs={12}>
+                <Paper>
+                  <RefereeDataComponent />
+                </Paper>
+              </Grid>
+            </Grid>
+          </Container>
+        </ThemeProvider>
+      </RainbowKitProvider>
+    </WagmiConfig>
   );
 };
 
