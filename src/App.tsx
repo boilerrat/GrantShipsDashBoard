@@ -12,8 +12,9 @@ import GrantShip1Data from './data/ShipsData/GrantShip1Data';
 import GrantShip2Data from './data/ShipsData/GrantShip2Data';
 import GrantShip3Data from './data/ShipsData/GrantShip3Data';
 import GrantShip4Data from './data/ShipsData/GrantShip4Data';
-import RefData from './data/ShipsData/refData';
 import TotalShipData from './data/ShipsData/totalShipData';
+import RefereeDataComponent from './data/RefereeDataComponent';
+
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true); // Default to dark mode
@@ -56,7 +57,7 @@ const App = () => {
           </Grid>
           <Grid item xs={12}>
             <Paper>
-              <RefData />
+              <RefereeDataComponent />
             </Paper>
           </Grid>
         </Grid>

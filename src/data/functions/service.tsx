@@ -10,7 +10,7 @@ import { seasonData } from '../seasonData';
  * 
  * Functions:
  * - calculateTotalImpact: Calculates the total impact score based on individual category scores.
- * - calculateAllImpacts: Calculates the total impact scores for all seasons of all Grant Ships.
+ * - calculateAllImpacts: Calculates the total impact scores for all seasons of all Grant Ships and returns them.
  */
 
 /**
@@ -42,30 +42,31 @@ export const calculateTotalImpact = (impact: { [key: string]: number }): number 
  * This function calculates the total impact scores for all seasons of all Grant Ships.
  * It uses the calculateTotalImpact function to calculate the total impact for each season.
  * 
- * @returns {void}
+ * @returns {Array} - An array of objects containing the name and aggregate total impact for each Grant Ship.
  */
-export const calculateAllImpacts = (): void => {
-    // Loop through each Grant Ship in the seasonData array
-    for (const grantShip of seasonData) {
-      // Initialize a variable to hold the aggregate total impact for the current Grant Ship
-      let aggregateTotalImpact = 0;
-  
-      console.log(`Calculating impact for ${grantShip.name}`);
-  
-      // Loop through each season for the current Grant Ship
-      for (const season of grantShip.seasons) {
-        // Calculate the total impact using the calculateTotalImpact function
-        const totalImpactScore = calculateTotalImpact(season.impact);
-  
-        // Add the total impact score of the current season to the aggregate total impact
-        aggregateTotalImpact += totalImpactScore;
-  
-        console.log(`Total Impact for ${grantShip.name} in Season ${season.season}: ${totalImpactScore}`);
-      }
-  
-      // Log the aggregate total impact for the current Grant Ship
-      console.log(`Aggregate Total Impact for ${grantShip.name}: ${aggregateTotalImpact}`);
-    }
-  };
- 
+export const calculateAllImpacts = (): any[] => {
+  const aggregateData: any[] = [];  // Initialize an empty array to hold the aggregate data
 
+  // Loop through each Grant Ship in the seasonData array
+  for (const grantShip of seasonData) {
+    // Initialize a variable to hold the aggregate total impact for the current Grant Ship
+    let aggregateTotalImpact = 0;
+
+    // Loop through each season for the current Grant Ship
+    for (const season of grantShip.seasons) {
+      // Calculate the total impact using the calculateTotalImpact function
+      const totalImpactScore = calculateTotalImpact(season.impact);
+
+      // Add the total impact score of the current season to the aggregate total impact
+      aggregateTotalImpact += totalImpactScore;
+    }
+
+    // Add the aggregate total impact for the current Grant Ship to the aggregateData array
+    aggregateData.push({
+      name: grantShip.name,
+      aggregateTotalImpact,
+    });
+  }
+
+  return aggregateData;  // Return the aggregateData array
+};
