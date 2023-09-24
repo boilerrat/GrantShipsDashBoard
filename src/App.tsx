@@ -1,40 +1,69 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import React, { useState } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import { createMyTheme } from './theme';
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  const [darkMode, setDarkMode] = useState(true); // Default to dark mode
+  const theme = createMyTheme(darkMode);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>React + Vite</h1>
-      <h2>On CodeSandbox!</h2>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR.
-        </p>
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <Paper>
+          {/* Top Section: Grant Ships Total */}
+          <Typography variant="h4">Grant Ships Total</Typography>
+          {/* Place your charts and stats here */}
+        </Paper>
+      </Grid>
 
-        <p>
-          Tip: you can use the inspector button next to address bar to click on
-          components in the preview and open the code in the editor!
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <Grid item xs={12} md={6}>
+        <Paper>
+          {/* Section 2: Grant Ship 1 */}
+          <Typography variant="h5">Grant Ship 1</Typography>
+          {/* Place your info, stats, and charts for Grant Ship 1 here */}
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Paper>
+          {/* Section 3: Grant Ship 2 */}
+          <Typography variant="h5">Grant Ship 2</Typography>
+          {/* Place your info, stats, and charts for Grant Ship 2 here */}
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Paper>
+          {/* Section 4: Grant Ship 3 */}
+          <Typography variant="h5">Grant Ship 3</Typography>
+          {/* Place your info, stats, and charts for Grant Ship 3 here */}
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Paper>
+          {/* Section 5: Grant Ship 4 */}
+          <Typography variant="h5">Grant Ship 4</Typography>
+          {/* Place your info, stats, and charts for Grant Ship 4 here */}
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Paper>
+          {/* Section 6: Additional Info/bottom nav bar */}
+          <Typography variant="h5">Additional Info</Typography>
+          {/* Place your additional info and bottom nav bar here */}
+        </Paper>
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default App;
