@@ -38,6 +38,7 @@ interface Season {
     }
   }
 
+  
 // Extracting Grant Ship 1 data from seasonData
 const grantShip1SeasonData: Season[] = seasonData.find(ship => ship.name === 'Grant Ship 1')?.seasons || [];
 

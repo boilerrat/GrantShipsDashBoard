@@ -9,12 +9,6 @@ interface CardStatus {
   greenCard: boolean;
 }
 
-interface Crew {
-  id: string;
-  isActive: boolean;
-  wearers: Wearer[];
-}
-
 interface Captain {
   id: string;
   isActive: boolean;
