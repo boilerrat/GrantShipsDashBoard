@@ -19,8 +19,7 @@ interface Captain {
   id: string;
   isActive: boolean;
   wearer: Wearer;
-  crew: Crew;
-}
+ }
 
 interface GrantShip {
   id: string;
@@ -29,6 +28,7 @@ interface GrantShip {
   wearer: Wearer;
   cards: CardStatus;
   captain: Captain;
+  crew: Crew;
 }
 
 interface RefereeTeam {
@@ -86,11 +86,11 @@ const hatData: GrantShipsTopHat = {
         id: "83.2.1",
         isActive: true,
         wearer: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
-        crew: {
-          id: "83.2.1.1",
-          isActive: true,
-          wearers: ["0x72aAbd1305f6b7F8c6FBE7895B2DdC4b6E40eDD7", "0x6Fb00a93a49a7506668700e12578ABE7BAd866E9"],
-        },
+      },
+      crew: {
+        id: "83.2.1.1",
+        isActive: true,
+        wearers: ["0x72aAbd1305f6b7F8c6FBE7895B2DdC4b6E40eDD7", "0x6Fb00a93a49a7506668700e12578ABE7BAd866E9"],
       },
     },
     {
@@ -108,11 +108,11 @@ const hatData: GrantShipsTopHat = {
           id: "83.3.1",
           isActive: true,
           wearer: "0x5c6B0f7Bf3E7ce046039Bd8FABdfD3f9F5021678",
-          crew: {
-            id: "83.3.1.1",
-            isActive: true,
-            wearers: ["0x742d35Cc6634C0532925a3b844Bc454e4438f44eE", "0x2B5634C42055806a59e9107ED44D43c426E58258"],
-          },
+        },
+        crew: {
+          id: "83.3.1.1",
+          isActive: true,
+          wearers: ["0x742d35Cc6634C0532925a3b844Bc454e4438f44eE", "0x2B5634C42055806a59e9107ED44D43c426E58258"],
         },
       },
       {
@@ -130,12 +130,12 @@ const hatData: GrantShipsTopHat = {
         id: "83.4.1",
         isActive: true,
         wearer: "0x6cc5F688a315f3dC28A7781717a9A798a59fDA7b",
+        },
         crew: {
-            id: "83.4.1.1",
-            isActive: true,
-            wearers: ["0x9d8E5fAc117bA6666c6Bb3Db8a5eDf7d4B59DB9e", "0x53d284357ec70cE289D6D64134DfAc8E511c8a3D"],
-        },
-        },
+          id: "83.4.1.1",
+          isActive: true,
+          wearers: ["0x9d8E5fAc117bA6666c6Bb3Db8a5eDf7d4B59DB9e", "0x53d284357ec70cE289D6D64134DfAc8E511c8a3D"],
+      },
      },
      {
          id: "83.5",
@@ -152,12 +152,12 @@ const hatData: GrantShipsTopHat = {
          id: "83.5.1",
          isActive: false,
          wearer: "NAN",
+         },
          crew: {
-             id: "83.5.1.1",
-             isActive: false,
-             wearers: ["NAN"],
-         },
-         },
+          id: "83.5.1.1",
+          isActive: false,
+          wearers: ["NAN"],
+      },
     }     
   ],
 };

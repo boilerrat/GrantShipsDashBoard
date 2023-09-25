@@ -31,6 +31,11 @@ interface Season {
       isActive: boolean;
       wearer: string | "NAN";
     };
+    crew?: {
+      id: string;
+      isActive: boolean;
+      wearer: string
+    }
   }
 
 // Extracting Grant Ship 1 data from seasonData
@@ -49,6 +54,11 @@ const defaultGrantShip: GrantShip = {
     greenCard: false,
   },
   captain: {
+    id: '',
+    isActive: false,
+    wearer: 'NAN',
+  },
+  crew: {
     id: '',
     isActive: false,
     wearer: 'NAN',
@@ -90,8 +100,9 @@ const GrantShip1Data = () => {
 
       {/* Displaying Hat Data */}
       <Typography variant="subtitle1">Hat Data</Typography>
-      <Typography variant="body2">Wearer Hat ID: {grantShip1HatData.id}</Typography> {/* Display Hat ID */}
+      <Typography variant="body2">Grant Ship 1 Hat ID: {grantShip1HatData.id}</Typography> {/* Display Hat ID */}
       <Typography variant="body2">Captain Hat ID: {grantShip1HatData.captain?.id}</Typography> {/* Display Hat ID */}
+      <Typography variant="body2">Crew Memeber Hat ID: {grantShip1HatData.crew?.id}</Typography>
       <Typography variant="body2">Green Card: {grantShip1HatData.cards?.greenCard ? 'Yes' : 'No'}</Typography>
     </div>
   );
