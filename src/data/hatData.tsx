@@ -15,6 +15,12 @@ interface Captain {
   wearer: Wearer;
  }
 
+ interface Crew {
+  id: string;
+  isActive: boolean;
+  wearers: Wearer[];  // Use Wearer type alias for flexibility
+}
+
 interface GrantShip {
   id: string;
   name: string;
