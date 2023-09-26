@@ -21,6 +21,10 @@ import GrantShip4Data from './data/ShipsData/GrantShip4Data';
 import TotalShipData from './data/ShipsData/totalShipData';
 import RefereeDataComponent from './data/RefereeDataComponent';
 
+// Charts
+
+import SeasonBarChartGS1 from './data/charts/GS1Charts/SeasonBarChart';
+
 // RainbowKit and Wagmi imports
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
@@ -104,6 +108,7 @@ const App = () => {
                   <Grid item xs={12}>
                     <Paper sx={{ padding: 2, minHeight: '225px' }}>
                       {/* Grant Ship 1 Seasonal Charts */}
+                      <SeasonBarChartGS1 /> 
                     </Paper>
                   </Grid>
                   <Grid item xs={12}>
