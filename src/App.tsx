@@ -24,7 +24,7 @@ import RefereeDataComponent from './data/RefereeDataComponent';
 // Charts
 
 import SeasonBarChartGS1 from './data/charts/GS1Charts/SeasonBarChart';
-import ErrorBoundary from './components/ErrorBoundry';
+import ErrorBoundary from './components/errorBoundry';
 
 // RainbowKit and Wagmi imports
 import '@rainbow-me/rainbowkit/styles.css';

@@ -2,26 +2,26 @@
 
 type Wearer = string | "NAN"; // Type alias for wearer, can be a string representing an address or "NAN"
 
-interface CardStatus {
+export interface CardStatus {
   yellowCard1: boolean;
   yellowCard2: boolean;
   redCard: boolean;
   greenCard: boolean;
 }
 
-interface Captain {
+export interface Captain {
   id: string;
   isActive: boolean;
   wearer: Wearer;
  }
  
- interface Crew {
+ export interface Crew {
   id: string;
   isActive: boolean;
   wearers: Wearer[]; 
 }
 
-interface GrantShip {
+export interface GrantShip {
   id: string;
   name: string;
   isActive: boolean;
@@ -31,7 +31,7 @@ interface GrantShip {
   crew: Crew;
 }
 
-interface RefereeTeam {
+export interface RefereeTeam {
   id: string;
   isActive: boolean;
   headReferee: {
@@ -46,7 +46,7 @@ interface RefereeTeam {
   };
 }
 
-interface GrantShipsTopHat {
+export interface GrantShipsTopHat {
   id: string;
   isActive: boolean;
   refereeTeam: RefereeTeam;
