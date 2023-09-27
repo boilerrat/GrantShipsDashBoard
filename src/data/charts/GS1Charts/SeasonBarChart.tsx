@@ -2,12 +2,17 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { seasonData } from '../../seasonData';
 
-const SeasonBarChartGS1 = () => {
+const SeasonBarChart = () => {
   const gs1Data = seasonData.find(ship => ship.name === "Grant Ship 1");
 
-  const labels = gs1Data?.seasons.map(s => `Season ${s.season}`);
-  const allocatedData = gs1Data?.seasons.map(s => s.allocated);
-  const distributedData = gs1Data?.seasons.map(s => s.distributed);
+  // Check if gs1Data and its seasons are available
+  if (!gs1Data || !gs1Data.seasons) {
+    return <p>Loading...</p>; // Or some other placeholder
+  }
+
+  const labels = gs1Data.seasons.map(s => `Season ${s.season}`);
+  const allocatedData = gs1Data.seasons.map(s => s.allocated);
+  const distributedData = gs1Data.seasons.map(s => s.distributed);
 
   const data = {
     labels,
@@ -28,4 +33,4 @@ const SeasonBarChartGS1 = () => {
   return <Bar data={data} />;
 };
 
-export default SeasonBarChartGS1;
+export default SeasonBarChart;

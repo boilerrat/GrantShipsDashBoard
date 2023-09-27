@@ -24,6 +24,7 @@ import RefereeDataComponent from './data/RefereeDataComponent';
 // Charts
 
 import SeasonBarChartGS1 from './data/charts/GS1Charts/SeasonBarChart';
+import ErrorBoundary from './components/ErrorBoundry';
 
 // RainbowKit and Wagmi imports
 import '@rainbow-me/rainbowkit/styles.css';
@@ -108,7 +109,9 @@ const App = () => {
                   <Grid item xs={12}>
                     <Paper sx={{ padding: 2, minHeight: '225px' }}>
                       {/* Grant Ship 1 Seasonal Charts */}
-                      <SeasonBarChartGS1 /> 
+                      <ErrorBoundary>
+                      <SeasonBarChartGS1 />
+                      </ErrorBoundary>
                     </Paper>
                   </Grid>
                   <Grid item xs={12}>
